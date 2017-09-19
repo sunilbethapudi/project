@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>RET APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+<body>
+<marquee bgcolor="yellow"><h1>MONTHLY</h1></marquee><br></br>
+ <!-- <p>Month: <input type="month"  id="textfiledid" name="date" onChange="process1(event);"/></p> -->
+	<div class="container" >
+		<form method="POST" name="act1" enctype="multipart/form-data" th:action="@{/greeting}" >
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 20px;left: 180px;"><label>Month:</label></div>
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 20px;left: 200px; background-color: yellow;"><input type="month" class="mclass" name="date" id="A1" onchange="process1();"/></div><br></br><br></br><br></br>
+		 <input type="hidden" name="date1" id="A2" value=""/> 
+		<input type="hidden" name="activityname"  value="Activity1" />
+			
+			<div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 180px;"><label>Activity1:</label></div>
+			 <div style="float:left; width:20px; height:auto; position: relative; top: 40px;left: 200px;">  <input type="file" name="file" /></div>
+			<div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 350px;">  <input type="submit" value="Upload" onclick="process1();"/></div>
+				              
+				            	
+		</form>	
+	</div>
+	
+	<form method="GET" name="act2" th:action="@{/readFile}" >
+		<input type="hidden" class="chldclass" name="date" id="A2" value="" />
+		<input type="hidden" name="activityname"  value="Activity1" />
+              <div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 400px;">    <input type="submit" value="Read" onclick="process1();"/>	</div>
+				            	
+		</form>
+	
+	<br></br>
+	<div>
+		<form method="POST" name="act3" enctype="multipart/form-data" th:action="@{/greeting}">
+		<input type="hidden" name="date" id="A1" value=""/> 
+		<input type="hidden" name="date1" id="A2" value=""/> 
+		<input type="hidden" name="activityname"  value="Activity2" />
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 60px;left: 10px;"><label>Activity2:</label></div>
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 60px;left: 30px;"><input type="file" name="file" /> </div>
+		             
+		<div style="float:left; width:50px; height:auto; position: relative; top: 60px;left: 150px;"><input type="submit" value="Upload" onclick="process1();"/>	</div>	
+		
+		</form>
+	</div>
+	<div>
+	<form method="GET"  name="act4" th:action="@{/readFile}" >
+		<input type="hidden" name="date" id="A2"/>
+		<input type="hidden" name="activityname"  value="Activity2" />
+              <div style="float:left; width:50px; height:auto; position: relative; top: 60px;left: 200px;">   <input type="submit" value="Read" onclick="process1();"/>	</div>
+				            	
+		</form>
+	</div>
+	<script lang="javascript">
+	var date_input = document.getElementById('A1');
+	date_input.valueAsDate = new Date();
+	
+	 function process1() { 
+	      
+	        document.act2.date.value = document.act1.date.value;
+	        document.act3.date.value = document.act1.date.value;
+	        document.act4.date.value = document.act1.date.value;
+			
+	 }
+				
+	</script>
+</body>
+</html>

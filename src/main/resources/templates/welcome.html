@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>RET APPLICATION</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/login.css}" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	
+	<marquee bgcolor="yellow"><h1>RET BACKUP</h1></marquee><br></br>
+	
+	<div class="container">
+	
+		<form th:action="@{/monthly}" method="get" class="form-signin" >
+		
+			<br/>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Monthly" type="Submit" th:text="Monthly"></button>
+		</form>
+	</div>
+	
+	
+	<div class="container">
+		
+		<form th:action="@{/roaster}" method="get" class="form-signin">
+			
+			<br/>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="Roaster" type="Submit" th:text="Roaster"></button>
+			
+		</form>
+	</div>
+	
+	<div class="container">
+		
+		<form th:action="@{/morningchecks}" method="get" class="form-signin">
+			
+			<br/>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="MorningChecks" type="Submit" th:text="MorningChecks"></button>
+		</form>
+	</div>
+	
+	<div class="container">
+		
+		<form th:action="@{/implinks}" method="get" class="form-signin">
+			
+			<br/>
+			<button class="btn btn-lg btn-primary btn-block" name="Submit" value="ImportantLinks" type="Submit" th:text="ImportantLinks"></button>
+		</form>
+	</div>
+	
+</body>
+</html>

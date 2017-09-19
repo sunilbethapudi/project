@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>RET APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+<body>
+<marquee bgcolor="yellow"><h1>MORNING CHECKS</h1></marquee><br></br>
+ <!-- <p>Month: <input type="month" value="2017-02" id="textfiledid" name="date" onChange="process1()"/></p> -->
+	
+		<form method="POST" name="rota1" enctype="multipart/form-data" th:action="@{/morningcheck}" >
+		
+		 
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 20px;left: 180px;"><label>Month:</label></div>
+		 
+		 <div style="float:left; width:50px; height:auto; position: relative; top: 20px;left: 200px;"><input type="date" name="date" id="A1" onChange="process1();"/></div><br></br><br></br><br></br>
+		
+		
+		<input type="hidden" name="activityname"  value="Activity1" />
+			<div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 180px;"><label>Morning check:</label></div>
+				<div style="float:left; width:20px; height:auto; position: relative; top: 40px;left: 200px;">  <input type="file" name="file" /></div>
+				  <div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 350px;">  <input type="submit" value="Upload" onclick="process1();"/></div>	
+				              
+				            	
+		</form>	
+	
+	
+	<form method="GET" name="rota2" th:action="@{/readChecks}" >
+		<input type="hidden" name="date" id="A2" value="" />
+		<input type="hidden" name="activityname"  value="Activity1" />
+        <div style="float:left; width:50px; height:auto; position: relative; top: 40px;left: 400px;">      <input type="submit" value="Read" onclick="process1();"/>	</div>
+				            	
+		</form>
+	
+	<br></br>
+	
+	<script lang="javascript">
+		var date_input = document.getElementById('A1');
+		date_input.valueAsDate = new Date();
+
+		function process1() {
+
+			document.rota2.date.value = document.rota1.date.value;
+		}
+	</script>
+</body>
+</html>

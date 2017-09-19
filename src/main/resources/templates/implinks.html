@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>RET APPLICATION</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script  src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript">
+
+function generate() {
+    var a = document.createElement('a');
+    
+    a.href = 'http://' + document.getElementById('href').value;    
+    a.target = '_blank';
+    a.appendChild(document.createTextNode(document.getElementById('href').value));
+    document.getElementById('link').appendChild(a);
+    document.getElementById('link').appendChild(document.createElement('br'));
+    document.implinks.link.value=document.implinks.href.value;
+}
+
+</script> 
+
+<form id="readlinks" name="readlinks" >
+
+
+</form>
+<iframe name="hiddenFrame" hidden="true" class="hide"></iframe>
+<form method="post" name="implinks" enctype="multipart/form-data" th:action="@{/links}" target="hiddenFrame">
+     Link: <input id="href" name="href"/> <button onclick="generate()">Generate</button>
+     <input type="hidden" value="" name="link"/>
+<p id="link"></p>
+</form>
+</body>
+</html>
